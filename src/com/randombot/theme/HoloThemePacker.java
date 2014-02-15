@@ -31,8 +31,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Tree;
 import com.badlogic.gdx.scenes.scene2d.ui.Tree.Node;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.tools.imagepacker.TexturePacker2;
-import com.badlogic.gdx.tools.imagepacker.TexturePacker2.Settings;
+import com.badlogic.gdx.tools.texturepacker.TexturePacker;
+import com.badlogic.gdx.tools.texturepacker.TexturePacker.Settings;
 
 public class HoloThemePacker implements ApplicationListener {
 
@@ -256,7 +256,7 @@ public class HoloThemePacker implements ApplicationListener {
 		Gdx.files.absolute(this.auxDir+"HoloResources/created/stuff/" + fontName + "-Toolbar-" + size + ".png")
 		.copyTo(Gdx.files.absolute(this.auxDir+"HoloResources/tmp/" + fontName + "-Toolbar-" + size + ".png"));		
 
-		Settings set = new TexturePacker2.Settings();
+		Settings set = new TexturePacker.Settings();
 		set.filterMag = TextureFilter.Linear;
 		set.filterMin = TextureFilter.Linear;
 		set.pot = false;
@@ -266,7 +266,7 @@ public class HoloThemePacker implements ApplicationListener {
 		set.paddingY = 4;
 
 		// Pack all pngs	
-		TexturePacker2.process(set, 
+		TexturePacker.process(set, 
 				auxDir + "/HoloResources/tmp",
 				auxDir + "/HoloResources/result/" + sizes[0], 
 				"holo-" + color + "-" + size);
