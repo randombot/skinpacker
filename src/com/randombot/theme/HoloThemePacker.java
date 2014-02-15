@@ -34,9 +34,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.tools.imagepacker.TexturePacker2;
 import com.badlogic.gdx.tools.imagepacker.TexturePacker2.Settings;
 
-import es.eucm.ead.mockup.core.view.ui.Panel;
-import es.eucm.ead.mockup.core.view.ui.ToolBar;
-
 public class HoloThemePacker implements ApplicationListener {
 
 	private final Color CLEAR_COLOR = new Color(0.705f, 0.7411f, 0.875f, 1f);
@@ -121,11 +118,8 @@ public class HoloThemePacker implements ApplicationListener {
 		//Panel, toolbar...
 		uiTable.row();
 		uiTable.add("Panel");
-		uiTable.add(new Panel(s)).fill().expand().colspan(3);
 		uiTable.row();
 		uiTable.add("ToolBar");
-		uiTable.add(new ToolBar(s)).fill().expand().colspan(3);
-
 		CheckBox checkBox = new CheckBox("Check me", s);
 		final Slider slider = new Slider(0, 10, 1, false, s);
 		TextField textfield = new TextField("", s);
