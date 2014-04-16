@@ -33,6 +33,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker.Settings;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class HoloThemePacker implements ApplicationListener {
 
@@ -44,8 +45,8 @@ public class HoloThemePacker implements ApplicationListener {
 	private final boolean DISPLAY_RESULT = true;
 	
 	//Establish here if you want your resulted project to be copied to some other directory...	 
-	private final boolean COPY = false;
-	private final String dirCpy = "YOUR_COPY_DIR_HERE";
+	private final boolean COPY = true;
+	private final String dirCpy = "Z:/UNI/Workspace_ead_Rotaru/ead/assets/skins/mockup";
 
 	private final String[] sizes = new String[] { "xhdpi" };
 	private final String[] colours = new String[] { "light" };	
@@ -58,15 +59,17 @@ public class HoloThemePacker implements ApplicationListener {
 	private String auxDir;
 	private Stage ui;
 
+	
+	
 	public void create() {		
 
 		compile(color, size);	// ONLY XHDPI for now...
 
 		if(!DISPLAY_RESULT) return;
 		//After compiling display the result...		
-		ui = new Stage();
+		ui = new Stage(new ScreenViewport());
 
-		Skin s = new Skin(Gdx.files.internal("HoloResources/result/" + sizes[0] + "/holo-dark-xhdpi.json"));
+		Skin s = new Skin(Gdx.files.internal("HoloResources/result/" + sizes[0] + "/skin.json"));
 		Table uiTable = new Table(s);
 
 		uiTable.add(new Label("Label", s));
@@ -97,16 +100,19 @@ public class HoloThemePacker implements ApplicationListener {
 		// SelectBox
 		uiTable.row();
 		String[] testSelect = new String[] { "Options", "Settings", "Network", "Personal Settings" };
-		uiTable.add(new SelectBox(testSelect, s)).fill().expandX();
-		uiTable.add(new SelectBox(testSelect, s, "default-thin"));
-
+		SelectBox<String> s1, s2;
+		uiTable.add(s1 = new SelectBox<String>(s)).fill().expandX();
+		uiTable.add(s2 = new SelectBox<String>(s, "default-thin"));
+		s1.setItems(testSelect);s2.setItems(testSelect);
 		// Slider
 		uiTable.row();
 		uiTable.add(new Slider(0, 100, 1, false, s, "left-horizontal")).fill().expandX().colspan(3);
 
 		// List & Tree
 		uiTable.row();
-		uiTable.add(new List(testSelect, s));
+		List<String> ll1;
+		uiTable.add(ll1 = new List<String>(s));
+		ll1.setItems(testSelect);
 		Tree t = new Tree(s);
 		Node l1 = new Node(new Label("Level 1", s, "default-opaque"));
 		l1.add(new Node(new Label("Level 1.1", s, "default-opaque")));
@@ -124,15 +130,16 @@ public class HoloThemePacker implements ApplicationListener {
 		final Slider slider = new Slider(0, 10, 1, false, s);
 		TextField textfield = new TextField("", s);
 		textfield.setMessageText("Click here!");
-		SelectBox dropdown = new SelectBox(
+		SelectBox<String> dropdown = new SelectBox<String>( s);
+		dropdown.setItems(
 				new String[] {"Android", "Windows", "Linux", 
 						"OSX","Android", "Windows", "Linux", 
 						"OSX","Android", "Windows", "Linux", 
 						"OSX","Android", "Windows", "Linux", 
 						"OSX","Android", "Windows", "Linux", 
 						"OSX","Android", "Windows", "Linux", 
-						"OSX","Android", "Windows", "Linux"}, s);
-		List list = new List(dropdown.getItems(), s);
+						"OSX","Android", "Windows", "Linux"});
+		List<String> list = new List<String>( s); list.setItems(dropdown.getItems());
 		ScrollPane scrollPane2 = new ScrollPane(list, s);
 		scrollPane2.setFlickScroll(false);
 		Window window = new Window("Test Window", s);
@@ -172,9 +179,9 @@ public class HoloThemePacker implements ApplicationListener {
 		uiTable.add(new Label("Skin Manager", s)).fill().expandX()
 		.colspan(3);
 		uiTable.row();
-		final SelectBox sb_col = new SelectBox(colours, s);
+		final SelectBox<String> sb_col = new SelectBox<String>(s);sb_col.setItems(colours);
 		uiTable.add(sb_col).fill().expandX();
-		final SelectBox sb_sizes = new SelectBox(sizes, s);
+		final SelectBox<String> sb_sizes = new SelectBox<String>( s);sb_sizes.setItems(sizes);
 		uiTable.add(sb_sizes).fill().expandX();
 		TextButton tb_compile = new TextButton("Nothing [CompileSkin]", s);
 		uiTable.add(tb_compile).fill().expandX();
@@ -202,7 +209,7 @@ public class HoloThemePacker implements ApplicationListener {
 
 		// copy JSON file updating content
 		Writer w = Gdx.files.absolute(this.auxDir+
-				"HoloResources/result/" + sizes[0] + File.separator + "holo-" + color + "-" + size + ".json")
+				"HoloResources/result/" + sizes[0] + File.separator + "skin.json")
 				.writer(false);
 		BufferedReader br = new BufferedReader(new InputStreamReader(Gdx.files
 				.absolute(this.auxDir+"HoloResources/created/stuff/holo.json").read()));
@@ -269,7 +276,7 @@ public class HoloThemePacker implements ApplicationListener {
 		TexturePacker.process(set, 
 				auxDir + "/HoloResources/tmp",
 				auxDir + "/HoloResources/result/" + sizes[0], 
-				"holo-" + color + "-" + size);
+				"skin");
 
 		// empty tmp folder
 		Gdx.files.absolute(this.auxDir+"HoloResources/tmp").emptyDirectory();
@@ -311,5 +318,5 @@ public class HoloThemePacker implements ApplicationListener {
 	public void pause() { }
 	public void resume() { }
 	public void dispose() { ui.dispose(); }	
-	public void resize(int width, int height) { ui.setViewport(width, height, true); }
+	public void resize(int width, int height) { ui.getViewport().update(width, height, true); }
 }

@@ -1,14 +1,15 @@
 {
 	com.badlogic.gdx.graphics.g2d.BitmapFont: { 
-		default-font: { file: dfpop-<size>.fnt }, 
-		thin-font: { file: dfpop-Thin-<size>.fnt }, 
-		toolbar-font: { file: dfpop-Toolbar-<size>.fnt } 
+		default-font: { file: dfpop-xhdpi.fnt }, 
+		thin-font: { file: dfpop-Thin-xhdpi.fnt }, 
+		toolbar-font: { file: dfpop-Toolbar-xhdpi.fnt } 
 	},
 	com.badlogic.gdx.graphics.Color: {
 		green: { a: 1, b: 0, g: 1, r: 0 },
 		white: { a: 1, b: 1, g: 1, r: 1 },
 		red: { a: 1, b: 0, g: 0, r: 1 },
 		black: { a: 1, b: 0, g: 0, r: 0 },
+		transparent: { a: 0, b: 0, g: 0, r: 0 },
 		text-dark: { a: 1, b: 1, g: 1, r: 1 },
 		text-light: { a: 1, b: 1, g: 1, r: 1 },
 		text-light-dark: { a: 1, b: 0, g: 0, r: 0 },
@@ -21,6 +22,10 @@
 		blue-white-medium: { r: 0.614, g: 0.625, b: 0.641, a: 1 }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
+	
+    	white-border: { name: text_focused, color: white },
+    	white-bg: { name: white_pixel, color: white },
+    	
 		dialogDim: { name: white_pixel, color: blue-black },
 		dialogDimMedium: { name: white_pixel, color: blue-white },
 		dialogDimMediumAlpha: { name: white_pixel, color: blue-black-alpha },
@@ -31,10 +36,10 @@
 		dialogDimObscure: { name: white_pixel, color: { r: 0, g: 0, b: 0, a: 1 } }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle: {
-		default: { fontColorUnselected: text-<col>, selection: text_selected, fontColorSelected: text-<col>, font: default-font },
-		opaque: { fontColorUnselected: text-<col>, selection: text_selected_opaque, fontColorSelected: text-<col>, font: default-font },
-		default-thin: { fontColorUnselected: text-<col>, selection: text_selected, fontColorSelected: text-<col>, font: thin-font },
-		opaque-thin: { fontColorUnselected: text-<col>, selection: text_selected_opaque, fontColorSelected: text-<col>, font: thin-font }
+		default: { fontColorUnselected: text-dark, selection: text_selected, fontColorSelected: text-dark, font: default-font },
+		opaque: { fontColorUnselected: text-dark, selection: text_selected_opaque, fontColorSelected: text-dark, font: default-font },
+		default-thin: { fontColorUnselected: text-dark, selection: text_selected, fontColorSelected: text-dark, font: thin-font },
+		opaque-thin: { fontColorUnselected: text-dark, selection: text_selected_opaque, fontColorSelected: text-dark, font: thin-font }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
 		default: { hScrollKnob: scroll_horizontal_knob, vScrollKnob: scroll_vertical_knob},
@@ -47,10 +52,10 @@
 		toggle: { up: btn_toggle_off_normal, down: btn_toggle_on_pressed, over: btn_toggle_off_focused, checked: btn_toggle_on_normal, checkedOver: btn_toggle_on_focused, disabled: btn_toggle_off_disabled }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.TextButton$TextButtonStyle: {
-		default: { up: btn_default_normal, down: btn_default_pressed, over: btn_default_focused, disabled: btn_default_disabled, font: default-font, fontColor: text-<col> , downFontColor: text-<col>, overFontColor: text-<col>, disabledFontColor: text-<col>},
-		toggle: { up: btn_toggle_off_normal, down: btn_toggle_on_pressed, over: btn_toggle_off_focused, checked: btn_toggle_on_normal, checkedOver: btn_toggle_on_focused, disabled: btn_toggle_off_disabled, font: default-font, fontColor: text-<col> , downFontColor: text-<col>, overFontColor: text-<col>, checkedFontColor: text-<col>, checkedOverFontColor: text-<col>, disabledFontColor: text-<col> },
-		default-thin: { up: btn_default_normal, down: btn_default_pressed, over: btn_default_focused, disabled: btn_default_disabled, font: thin-font, fontColor: text-<col> , downFontColor: text-<col>, overFontColor: text-<col>, disabledFontColor: text-<col>},
-		toggle-thin: { up: btn_toggle_off_normal, down: btn_toggle_on_pressed, over: btn_toggle_off_focused, checked: btn_toggle_on_normal, checkedOver: btn_toggle_on_focused, disabled: btn_toggle_off_disabled, font: thin-font, fontColor: text-<col> , downFontColor: text-<col>, overFontColor: text-<col>, checkedFontColor: text-<col>, checkedOverFontColor: text-<col>, disabledFontColor: text-<col> }
+		default: { up: btn_default_normal, down: btn_default_pressed, over: btn_default_focused, disabled: btn_default_disabled, font: default-font, fontColor: text-dark , downFontColor: text-dark, overFontColor: text-dark, disabledFontColor: text-dark},
+		toggle: { up: btn_toggle_off_normal, down: btn_toggle_on_pressed, over: btn_toggle_off_focused, checked: btn_toggle_on_normal, checkedOver: btn_toggle_on_focused, disabled: btn_toggle_off_disabled, font: default-font, fontColor: text-dark , downFontColor: text-dark, overFontColor: text-dark, checkedFontColor: text-dark, checkedOverFontColor: text-dark, disabledFontColor: text-dark },
+		default-thin: { up: btn_default_normal, down: btn_default_pressed, over: btn_default_focused, disabled: btn_default_disabled, font: thin-font, fontColor: text-dark , downFontColor: text-dark, overFontColor: text-dark, disabledFontColor: text-dark},
+		toggle-thin: { up: btn_toggle_off_normal, down: btn_toggle_on_pressed, over: btn_toggle_off_focused, checked: btn_toggle_on_normal, checkedOver: btn_toggle_on_focused, disabled: btn_toggle_off_disabled, font: thin-font, fontColor: text-dark , downFontColor: text-dark, overFontColor: text-dark, checkedFontColor: text-dark, checkedOverFontColor: text-dark, disabledFontColor: text-dark }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 		default: { up: btn_default_normal, down: btn_default_pressed, over: btn_default_focused, disabled: btn_default_disabled, imageUp: icon-blitz, imageDown: icon-blitz, imageOver: icon-blitz, imageDisabled: icon-blitz},
@@ -58,6 +63,7 @@
 		
 		<icon>: { up: btn_toggle_off_normal, down: btn_toggle_on_pressed, over: btn_toggle_off_focused, checked: btn_toggle_on_normal, checkedOver: btn_toggle_on_focused, disabled: btn_toggle_off_disabled, imageUp: <icon>, imageDown: <icon>, imageOver: <icon>, imageChecked: <icon>, imageCheckedOver: <icon>, imageDisabled: <icon> },
 		
+		ic_delete: { up: btn_toggle_off_normal, down: btn_toggle_on_pressed, over: btn_toggle_off_focused, checked: btn_toggle_on_normal, checkedOver: btn_toggle_on_focused, disabled: btn_toggle_off_disabled, imageUp: ic_delete, imageDown: ic_delete, imageOver: ic_delete, imageChecked: ic_delete, imageCheckedOver: ic_delete, imageDisabled: ic_delete },	
 		ic_record: { imageUp: ic_recordoff, imageChecked: ic_recordon },	
 		ic_newproject: { up: btn_default_normal, down: btn_default_pressed, over: btn_default_focused, disabled: btn_default_disabled, imageUp: ic_newproject, imageDown: ic_newproject, imageOver: ic_newproject, imageDisabled: ic_newproject},
 		ic_photocamera: { up: btn_default_normal, down: btn_default_pressed, over: btn_default_focused, disabled: btn_default_disabled, imageUp: ic_photocamera, imageDown: ic_photocamera, imageOver: ic_photocamera, imageDisabled: ic_photocamera},
@@ -66,19 +72,19 @@
 		ic_menu: { up: btn_default_normal, down: btn_default_pressed, over: btn_default_focused, disabled: btn_default_disabled, imageUp: ic_menu, imageDown: ic_menu, imageOver: ic_menu, imageDisabled: ic_menu}
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.SelectBox$SelectBoxStyle: {
-		default: { background: spinner_default, backgroundOver: spinner_focused, backgroundOpen: spinner_pressed, listStyle: default, scrollStyle: opaque, font: default-font, fontColor: text-<col> },
-		default-thin: { background: spinner_default, backgroundOver: spinner_focused, backgroundOpen: spinner_pressed, listStyle: default-thin, scrollStyle: opaque, font: thin-font, fontColor: text-<col> }
+		default: { background: spinner_default, backgroundOver: spinner_focused, backgroundOpen: spinner_pressed, listStyle: default, scrollStyle: opaque, font: default-font, fontColor: text-dark },
+		default-thin: { background: spinner_default, backgroundOver: spinner_focused, backgroundOpen: spinner_pressed, listStyle: default-thin, scrollStyle: opaque, font: thin-font, fontColor: text-dark }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.SplitPane$SplitPaneStyle: {
 		default-vertical: { handle: splitpane_vertical },
 		default-horizontal: { handle: splitpane_horizontal }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
-		default: { titleFont: default-font, background: window, titleFontColor: text-<col> },
-		dialog: { titleFont: default-font, background: window, titleFontColor: text-<col>, stageBackground: dialogDim },
-		exit-dialog: { titleFont: default-font, background: window, titleFontColor: text-<col>, stageBackground: dialogDimMediumAlpha },
-		default-thin: { titleFont: thin-font, background: window, titleFontColor: text-<col> },
-		dialog-thin: { titleFont: thin-font, background: window, titleFontColor: text-<col>, stageBackground: dialogDim }
+		default: { titleFont: default-font, background: window, titleFontColor: text-dark },
+		dialog: { titleFont: default-font, background: window, titleFontColor: text-dark, stageBackground: dialogDim },
+		exit-dialog: { titleFont: default-font, background: window, titleFontColor: text-dark, stageBackground: dialogDimMediumAlpha },
+		default-thin: { titleFont: thin-font, background: window, titleFontColor: text-dark },
+		dialog-thin: { titleFont: thin-font, background: window, titleFontColor: text-dark, stageBackground: dialogDim }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.Slider$SliderStyle: {
 		default-horizontal: { background: scrubber_track, knob: scrubber_control_normal},
@@ -89,25 +95,25 @@
 		down-vertical: { background: scrubber_vertical_track, knob: scrubber_control_normal, knobBefore: scrubber_vertical_secondary, knobAfter: scrubber_vertical_primary}
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
-		default: { font: default-font, fontColor: text-<col>},
-		toolbar: { font: toolbar-font, fontColor: text-<col>},
-		default-thin: { font: thin-font, fontColor: text-<col>},
-		default-opaque: { font: default-font, fontColor: text-<col> , background: text_opaque},
-		default-thin-opaque: { font: thin-font, fontColor: text-<col> , background: text_opaque}
-	},
+		default: { font: default-font, fontColor: text-dark},
+		toolbar: { font: toolbar-font, fontColor: text-dark},
+		default-thin: { font: thin-font, fontColor: text-dark},
+		default-opaque: { font: default-font, fontColor: text-dark , background: text_opaque},
+		default-thin-opaque: { font: thin-font, fontColor: text-dark , background: text_opaque}
+	},	
 	com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
-		default: { selection: textfield_selection, background: textfield_default, focusedBackground: textfield_focused, disabledBackground: textfield_disabled, font: default-font, fontColor: text-<col>, focusedFontColor: text-<col>, disabledFontColor: text-<col>, cursor: textfield_cursor, messageFont: default-font, messageFontColor: text-<col> },
-		default-thin: { selection: textfield_selection, background: textfield_default, focusedBackground: textfield_focused, disabledBackground: textfield_disabled, font: thin-font, fontColor: text-<col>, focusedFontColor: text-<col>, disabledFontColor: text-<col>, cursor: textfield_cursor, messageFont: default-font, messageFontColor: text-<col> }
+		default: { selection: textfield_selection, background: textfield_default, focusedBackground: textfield_focused, disabledBackground: textfield_disabled, font: default-font, fontColor: text-dark, focusedFontColor: text-dark, disabledFontColor: text-dark, cursor: textfield_cursor, messageFont: default-font, messageFontColor: text-dark },
+		default-thin: { selection: textfield_selection, background: textfield_default, focusedBackground: textfield_focused, disabledBackground: textfield_disabled, font: thin-font, fontColor: text-dark, focusedFontColor: text-dark, disabledFontColor: text-dark, cursor: textfield_cursor, messageFont: default-font, messageFontColor: text-dark }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.CheckBox$CheckBoxStyle: {
-		default: { down: btn_default_pressed, over: btn_default_focused,  checkedOver: btn_default_focused, disabled: btn_default_disabled, font: default-font, fontColor: text-<col> , downFontColor: text-<col>, overFontColor: text-<col>, checkedFontColor: text-<col>, checkedOverFontColor: text-<col>, disabledFontColor: text-<col>, checkboxOn: btn_check_on, checkboxOff: btn_check_off, checkboxOver: btn_check_on_focused},
-		default-thin: { down: btn_default_pressed, over: btn_default_focused,  checkedOver: btn_default_focused, disabled: btn_default_disabled, font: thin-font, fontColor: text-<col> , downFontColor: text-<col>, overFontColor: text-<col>, checkedFontColor: text-<col>, checkedOverFontColor: text-<col>, disabledFontColor: text-<col>, checkboxOn: btn_check_on, checkboxOff: btn_check_off, checkboxOver: btn_check_on_focused},
-		default-radio: { down: btn_default_pressed, over: btn_default_focused,  checkedOver: btn_default_focused, disabled: btn_default_disabled, font: default-font, fontColor: text-<col> , downFontColor: text-<col>, overFontColor: text-<col>, checkedFontColor: text-<col>, checkedOverFontColor: text-<col>, disabledFontColor: text-<col>, checkboxOn: btn_radio_on, checkboxOff: btn_radio_off, checkboxOver: btn_radio_on_focused},
-		default-thin-radio: { down: btn_default_pressed, over: btn_default_focused,  checkedOver: btn_default_focused, disabled: btn_default_disabled, font: thin-font, fontColor: text-<col> , downFontColor: text-<col>, overFontColor: text-<col>, checkedFontColor: text-<col>, checkedOverFontColor: text-<col>, disabledFontColor: text-<col>, checkboxOn: btn_radio_on, checkboxOff: btn_radio_off, checkboxOver: btn_radio_on_focused}
+		default: { down: btn_default_pressed, over: btn_default_focused,  checkedOver: btn_default_focused, disabled: btn_default_disabled, font: default-font, fontColor: text-dark , downFontColor: text-dark, overFontColor: text-dark, checkedFontColor: text-dark, checkedOverFontColor: text-dark, disabledFontColor: text-dark, checkboxOn: btn_check_on, checkboxOff: btn_check_off, checkboxOver: btn_check_on_focused},
+		default-thin: { down: btn_default_pressed, over: btn_default_focused,  checkedOver: btn_default_focused, disabled: btn_default_disabled, font: thin-font, fontColor: text-dark , downFontColor: text-dark, overFontColor: text-dark, checkedFontColor: text-dark, checkedOverFontColor: text-dark, disabledFontColor: text-dark, checkboxOn: btn_check_on, checkboxOff: btn_check_off, checkboxOver: btn_check_on_focused},
+		default-radio: { down: btn_default_pressed, over: btn_default_focused,  checkedOver: btn_default_focused, disabled: btn_default_disabled, font: default-font, fontColor: text-dark , downFontColor: text-dark, overFontColor: text-dark, checkedFontColor: text-dark, checkedOverFontColor: text-dark, disabledFontColor: text-dark, checkboxOn: btn_radio_on, checkboxOff: btn_radio_off, checkboxOver: btn_radio_on_focused},
+		default-thin-radio: { down: btn_default_pressed, over: btn_default_focused,  checkedOver: btn_default_focused, disabled: btn_default_disabled, font: thin-font, fontColor: text-dark , downFontColor: text-dark, overFontColor: text-dark, checkedFontColor: text-dark, checkedOverFontColor: text-dark, disabledFontColor: text-dark, checkboxOn: btn_radio_on, checkboxOff: btn_radio_off, checkboxOver: btn_radio_on_focused}
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.List$ListStyle: {
-		default: { fontColorUnselected: text-<col>, selection: text_selected, fontColorSelected: text-<col>, font: default-font },
-		default-thin: { fontColorUnselected: text-<col>, selection: text_selected, fontColorSelected: text-<col>, font: thin-font }
+		default: { fontColorUnselected: text-dark, selection: text_selected, fontColorSelected: text-dark, font: default-font },
+		default-thin: { fontColorUnselected: text-dark, selection: text_selected, fontColorSelected: text-dark, font: thin-font }
 	},
 	com.badlogic.gdx.scenes.scene2d.ui.Touchpad$TouchpadStyle: {
 		default: { knob: scrubber_control_normal }
