@@ -66,7 +66,9 @@ public class Ttf2FntGenerator {
 	 *            "monospace-10" This will be used for creating the font file
 	 *            names
 	 * @param fontSize
-	 *            size of font when screen width equals referenceScreenWidth
+	 *            size of font
+	 *            
+	 * @param destiny location of the destiny folder
 	 */
 	public void createFont(FileHandle fontFile, String fontName, int fontSize,
 			FileHandle destiny) {
@@ -107,8 +109,7 @@ public class Ttf2FntGenerator {
 			String fontName, PixmapPacker packer, FileHandle destiny) {
 		FileHandle fontFile = Gdx.files.absolute(destiny.file()
 				.getAbsolutePath() + File.separator + fontName + ".fnt"); // .fnt
-																			// path
-		
+																			// path		
 		
 		BitmapFontWriter.setOutputFormat(BitmapFontWriter.OutputFormat.Text);
 
@@ -117,25 +118,24 @@ public class Ttf2FntGenerator {
 		Gdx.app.debug(TAG, String.format(
 				"Saving font [%s]: fontfile: %s, pixmapDir: %s\n", fontName,
 				fontFile, destiny));
-		// here we must add the png dir to the page refs
-		for (int i = 0; i < pageRefs.length; i++) {
-			pageRefs[i] = pageRefs.length == 1 ? (fontName + ".png") : (fontName
-					+ "_" + i);
-		}
 		BitmapFontWriter.writeFont(data, pageRefs, fontFile,
 				new BitmapFontWriter.FontInfo(fontName, fontSize), 1, 1);
 	}
 
 	/**
 	 * Set the width and height of the png files to which the fonts will be
-	 * saved. In the future it would be nice for page size to be automatically
-	 * set to the optimal size by the font generator. In the mean time it must
-	 * be set manually.
+	 * saved. 
+	 * @return 
 	 */
-	public void setPageSize(int size) {
+	public Ttf2FntGenerator setPageSize(int size) {
 		pageSize = size;
+		return this;
 	}
 
+	/**
+	 * See {@link #setPageSize(int)}.
+	 * @return
+	 */
 	public int getPageSize() {
 		return pageSize;
 	}
