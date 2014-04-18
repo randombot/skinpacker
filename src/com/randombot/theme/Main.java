@@ -11,7 +11,7 @@ public class Main {
 		cfg.width = 1280;
 		cfg.height = 800;
 
-		new LwjglApplication(new HoloThemePacker(), cfg);
+		new LwjglApplication(new SkinPacker(), cfg);
 	}
 	
 }
