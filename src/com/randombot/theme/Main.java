@@ -7,10 +7,10 @@ public class Main {
 	
 	public static void main(String[] args) {		
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-		cfg.title = "holo-theme-packer";
+		cfg.title = "skin packer";
 		cfg.width = 1280;
 		cfg.height = 800;
-		cfg.foregroundFPS = 60;
+
 		new LwjglApplication(new HoloThemePacker(), cfg);
 	}
 	

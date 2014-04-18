@@ -33,7 +33,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker.Settings;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 public class HoloThemePacker implements ApplicationListener {
 
@@ -45,7 +45,7 @@ public class HoloThemePacker implements ApplicationListener {
 	private final boolean DISPLAY_RESULT = true;
 	
 	//Establish here if you want your resulted project to be copied to some other directory...	 
-	private final boolean COPY = true;
+	private final boolean COPY = false;
 	private final String dirCpy = "Z:/UNI/Workspace_ead_Rotaru/ead/assets/skins/mockup";
 
 	private final String[] sizes = new String[] { "xhdpi" };
@@ -67,7 +67,7 @@ public class HoloThemePacker implements ApplicationListener {
 
 		if(!DISPLAY_RESULT) return;
 		//After compiling display the result...		
-		ui = new Stage(new ScreenViewport());
+		ui = new Stage(new ExtendViewport(1154, 720));
 
 		Skin s = new Skin(Gdx.files.internal("HoloResources/result/" + sizes[0] + "/skin.json"));
 		Table uiTable = new Table(s);
