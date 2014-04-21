@@ -267,8 +267,8 @@ public class SkinPacker implements ApplicationListener {
 
 		Settings set = new TexturePacker.Settings();
 		set.filterMag = TextureFilter.Linear;
-		set.filterMin = TextureFilter.Linear;
-		set.pot = false;
+		set.filterMin = TextureFilter.MipMapLinearNearest;
+		set.pot = true;
 		set.maxHeight = 1024;
 		set.maxWidth = 1024;
 		set.paddingX = 2;
