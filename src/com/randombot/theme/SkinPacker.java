@@ -49,8 +49,8 @@ public class SkinPacker implements ApplicationListener {
 	// Establish here if you want your resulted project to be copied to some
 	// other directory...
 	private final boolean COPY = true;
-	//private final String dirCpy = "Z:/UNI/Workspace_ead_Rotaru/ead/assets/skins/mockup";
-	private final String dirCpy = "/home/cristian/hlocal/hlocal_maven/ead/assets/skins/mockup";
+	private final String dirCpy = "Z:/UNI/Workspace_ead_Rotaru/ead/assets/skins/mockup";
+	//private final String dirCpy = "/home/cristian/hlocal/hlocal_maven/ead/assets/skins/mockup";
 	private final String[] sizes = new String[] { "xhdpi" };
 	private final String[] colours = new String[] { "light" };
 
